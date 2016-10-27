@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 '''I was given a challenge problem by Google:
 'Write a function answer(n) that takes an integer n between 3 and 200 inclusive
 and computes the number of uneven staircases with n bricks and at least 2 levels.'
@@ -46,8 +47,6 @@ def answer(n):
     n = int(n)
     global cases #quicker if answer has already been called on another n
     total = 0
-
-    #now the main body of this function
     if n >= 3:
         total += n-1 >> 1
     if n >= 6:
@@ -84,16 +83,15 @@ def answer(n):
         total += steps(n, 18)
     if n >= 190:
         total += steps(n, 19)
-    if n >= 210: #deals with cases not in the challenge problem
+    if n >= 210: #deals with cases not in the original challenge
         k = 20
-            while n >= ((k**2+k) >> 1):
-                total += steps(n, k)
-                k +=1
+        while n >= ((k**2+k) >> 1):
+            total += steps(n, k)
+            k +=1
     return total
 
 def main():
-    print("Enter n > 0, I will calculate number of strictly decreasing partitions of n.")
-    print("Warning: if n is much bigger than 200 this may take a while.")
+    print("Enter n > 0.  Warning: if n is much bigger than 1000 this may take a while.")
     import sys
     n = int(sys.stdin.readline())
     print(answer(n))
