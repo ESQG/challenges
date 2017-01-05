@@ -1,0 +1,3 @@
+I am starting out as a Python programmer, and supplementing an introductory class with a lot of challenge problems.   Unfortunately I cannot share all the challenge problems I’ve enjoyed as some of them have asked solvers not to publish our code; but here are a couple of my programs for coding challenges I found interesting.
+
+The file uneven_stairs.py takes input at the command line; however it writes a dictionary of values that speed up calculations, so for repeated uses it will work faster if its dictionary is stored between function calls.
