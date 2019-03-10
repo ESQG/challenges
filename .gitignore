@@ -1,0 +1,5 @@
+# I have a Mac, it makes these files
+.DS_Store
+
+# Compiled CPython files
+*.pyc
