@@ -23,29 +23,29 @@ and added a while loop at the end to deal with n larger than 200,
 specifically n >= 210 as 210 is the next triangular number greater than 200.
 '''
 
-cases = {}
+known_values = {}
 def steps(n, k):
-    global cases #make cases global so as to remember computed values between calls
+    global known_values #make known_values global so as to remember computed values between calls
     if n <= 0 or k <= 0 or k*(k+1)> 2*n:
         return 0
     elif k == 1 or k*(k+1) == 2*n or k*(k+1) == 2*n-2:
         return 1
     elif k == 2:
         return (n-1) >> 1
-    elif (n, k) in cases:
+    elif (n, k) in known_values:
 #can remember previous uses!
-        return cases[(n, k)]
+        return known_values[(n, k)]
     else:
         total = 0
         total += sum(map(lambda x: steps(n-x*k, k-1), range(1, n/k)))
         #We don't need to round up n/k for k >= 3 because n >= k(k-1)/2 + j*k, to make steps uneven.
-        cases[(n, k)] = total
+        known_values[(n, k)] = total
         return total
 
 
 def answer(n):
     n = int(n)
-    global cases #quicker if answer has already been called on another n
+    global known_values #quicker if answer has already been called on another n
     total = 0
     if n >= 3:
         total += n-1 >> 1
